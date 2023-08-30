@@ -1,21 +1,26 @@
 package org.example.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
+@SuppressWarnings({"checkstyle:MissingJavadocType", "checkstyle:Indentation"})
 @Entity
 public class PurchaseProduct {
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "purchase_id")
-    private Purchase purchase;
-
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @EmbeddedId
+    private PurchaseProductPk ppId;
 
     private int quantity;
+
     private double price;
+
+    private double weight;
+
+    public PurchaseProductPk getPpId() {
+        return ppId;
+    }
+
+    public void setPpId(PurchaseProductPk ppId) {
+        this.ppId = ppId;
+    }
 
     public int getQuantity() {
         return quantity;
@@ -33,5 +38,11 @@ public class PurchaseProduct {
         this.price = price;
     }
 
+    public double getWeight() {
+        return weight;
+    }
 
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
 }

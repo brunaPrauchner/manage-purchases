@@ -1,8 +1,9 @@
 package org.example.entity;
 
-import javax.persistence.*;
-import java.util.Date;
+import jakarta.persistence.*;
+import java.sql.Date;
 
+@SuppressWarnings({"checkstyle:MissingJavadocType", "checkstyle:Indentation"})
 @Entity
 public class Purchase {
     @Id
@@ -10,9 +11,19 @@ public class Purchase {
     private Long purchaseId;
 
     @ManyToOne
-    @JoinColumn(name = "store_id")
+    @JoinColumn(name = "storeId")
     private Store store;
+
     private Date purchaseDate;
+
+    public Long getPurchaseId() {
+        return purchaseId;
+    }
+
+    public void setPurchaseId(Long purchaseId) {
+        this.purchaseId = purchaseId;
+    }
+
     public Store getStore() {
         return store;
     }

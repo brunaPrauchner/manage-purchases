@@ -1,8 +1,11 @@
 package org.example.entity;
-import javax.persistence.*;
+
+import jakarta.persistence.*;
+
+
+@SuppressWarnings({"checkstyle:MissingJavadocType", "checkstyle:Indentation"})
 @Entity
 public class Product {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
@@ -11,6 +14,14 @@ public class Product {
     private String productName;
 
     private String category;
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
 
     public String getProductName() {
         return productName;
